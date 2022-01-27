@@ -1,0 +1,93 @@
+version: '3'
+services:
+  meta-mysql:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: meta-mysql
+    image: meta-mysql
+    ports:
+      - 3306:3306
+
+  meta-redis:
+    image: redis:6.2.6
+    ports:
+      - 6379:6379
+    restart: always
+    container_name: meta-redis
+    hostname: meta-redis
+
+  meta-register:
+    build:
+      context: ./meta-register
+    restart: always
+    ports:
+      - 8848:8848
+    container_name: meta-register
+    hostname: meta-register
+    image: meta-register
+
+  meta-gateway:
+    build:
+      context: ./meta-gateway
+    restart: always
+    ports:
+      - 9999:9999
+    container_name: meta-gateway
+    hostname: meta-gateway
+    image: meta-gateway
+
+  meta-auth:
+    build:
+      context: ./meta-auth
+    restart: always
+    container_name: meta-auth
+    hostname: meta-auth
+    image: meta-auth
+
+  meta-upms:
+    build:
+      context: ./meta-upms/meta-upms-biz
+    restart: always
+    container_name: meta-upms
+    hostname: meta-upms
+    image: meta-upms
+
+  meta-monitor:
+    build:
+      context: ./meta-visual/meta-monitor
+    restart: always
+    ports:
+      - 5001:5001
+    container_name: meta-monitor
+    hostname: meta-monitor
+    image: meta-monitor
+
+  meta-sentinel:
+    build:
+      context: ./meta-visual/meta-sentinel-dashboard
+    restart: always
+    image: meta-sentinel
+    container_name: meta-sentinel
+    ports:
+      - 5003:5003
+
+  meta-codegen:
+    build:
+      context: ./meta-visual/meta-codegen
+    restart: always
+    container_name: meta-codegen
+    hostname: meta-codegen
+    image: meta-codegen
+
+  meta-job:
+    build:
+      context: ./meta-visual/meta-xxl-job-admin
+    restart: always
+    container_name: meta-job
+    hostname: meta-job
+    image: meta-job
+    ports:
+      - 5004:5004

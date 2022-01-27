@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.soft.meta.common.feign.MetaFeignAutoConfiguration,\
+    com.soft.meta.common.feign.sentinel.SentinelAutoConfiguration,\
+    com.soft.meta.common.feign.sentinel.handle.GlobalBizExceptionHandler

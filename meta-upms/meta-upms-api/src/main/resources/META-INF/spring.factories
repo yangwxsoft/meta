@@ -1,0 +1,6 @@
+com.soft.meta.common.feign.MetaFeignAutoConfiguration=\
+  com.soft.meta.admin.api.feign.RemoteDictService,\
+  com.soft.meta.admin.api.feign.RemoteDeptService,\
+  com.soft.meta.admin.api.feign.RemoteLogService,\
+  com.soft.meta.admin.api.feign.RemoteTokenService,\
+  com.soft.meta.admin.api.feign.RemoteUserService

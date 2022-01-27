@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.soft.meta.common.security.service.MetaUserDetailsServiceImpl,\
+  com.soft.meta.common.security.service.MetaAppUserDetailsServiceImpl,\
+  com.soft.meta.common.security.component.MetaSecurityInnerAspect,\
+  com.soft.meta.common.security.component.MetaTokenStoreAutoConfiguration,\
+  com.soft.meta.common.security.component.MetaTokenStoreAutoCleanSchedule,\
+  com.soft.meta.common.security.component.MetaSecurityMessageSourceConfiguration
+
